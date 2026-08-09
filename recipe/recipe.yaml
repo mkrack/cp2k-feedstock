@@ -14,7 +14,7 @@ source:
     sha256: f9bd86f580f57a53a0768c0045d1417f9f9a1d66d851ed7f662f496200043373
 
 build:
-  number: 1
+  number: 2
   script: build.sh
   string: mpi_${{ mpi }}_h${{ hash }}_${{ build_number }}
   skip:
@@ -25,6 +25,7 @@ build:
 requirements:
   build:
     - ${{ compiler("c") }}
+    - ${{ stdlib("c") }}
     - ${{ compiler("cxx") }}
     - ${{ compiler("fortran") }}
     - ${{ mpi }}
@@ -37,7 +38,7 @@ requirements:
     - "cosma-scalapack >=2.8 *${{ mpi_prefix }}_*"
     - "dbcsr >=2.10 *${{ mpi_prefix }}_*"
     - eigen
-    # "elpa >=2025.06.001 *${{ mpi_prefix }}_*"
+    - "elpa >=2026.02.002 *${{ mpi_prefix }}_*"
     - "fftw * *${{ mpi_prefix }}_*"
     - "hdf5 * *${{ mpi_prefix }}_*"
     - libint
@@ -60,6 +61,7 @@ requirements:
     - ${{ mpi }}
     - "cosma-scalapack >=2.8 *${{ mpi_prefix }}_*"
     - "dbcsr >=2.10 *${{ mpi_prefix }}_*"
+    - "elpa >=2026.02.002 *${{ mpi_prefix }}_*"
     - "fftw >=3.3 *${{ mpi_prefix }}_*"
     - "hdf5 * *${{ mpi_prefix }}_*"
     - "libtorch >=2.12 *cpu_generic_*"
